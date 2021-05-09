@@ -1,9 +1,8 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
-import { Output, EventEmitter } from '@angular/core';
 
 // Project
-import { PRODUCTS } from './mock-products';
+import { ProductService } from "./product.service";
 
 @Component({
   selector: 'app-products',
@@ -11,16 +10,14 @@ import { PRODUCTS } from './mock-products';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  products = PRODUCTS;
-  @Output() newItemEvent = new EventEmitter<string>();
+  products: any[];
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
   }
 
-  addNewItem(value: string) {
-    this.newItemEvent.emit(value);
+  getCityId() {
+    this.products = this.productService.sendProducts();
   }
-
 }
