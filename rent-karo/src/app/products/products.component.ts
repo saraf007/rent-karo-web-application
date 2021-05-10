@@ -1,8 +1,8 @@
 // Angular
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 // Project
-import { ProductService } from "./product.service";
+import { PRODUCTS } from "./mock-products";
 
 @Component({
   selector: 'app-products',
@@ -11,13 +11,20 @@ import { ProductService } from "./product.service";
 })
 export class ProductsComponent implements OnInit {
   products: any[];
+  @Input() cityId: number;
 
-  constructor(private productService: ProductService) { }
+  constructor() { }
 
   ngOnInit(): void {
+    this.populateProductBasedOnCity();
   }
 
-  getCityId() {
-    this.products = this.productService.sendProducts();
+  populateProductBasedOnCity() {
+    if (this.cityId === 1) {
+     return this.products = [ { id: 1, name: "AC"} ]
+    }
+    else {
+      return this.products;
+    }
   }
 }

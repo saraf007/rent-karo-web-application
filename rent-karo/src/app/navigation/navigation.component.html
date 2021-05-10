@@ -13,7 +13,7 @@
             Select City
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li class="dropdown-item" *ngFor="let city of cities" (click)="getProducts(city.id)">
+            <li class="dropdown-item" *ngFor="let city of cities" (click)="setCityId(city.id)">
               {{ city.name }}
             </li>
           </ul>
@@ -26,3 +26,5 @@
     </div>
   </div>
 </nav>
+
+<app-products [cityId]="cityId"></app-products>
