@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 // Project
 import { PRODUCTS } from "../mock-products";
+import { CartService } from "../../cart/cart.service";
 
 @Component({
   selector: 'app-product-detail',
@@ -14,7 +15,7 @@ export class ProductDetailComponent implements OnInit {
   mockProducts = PRODUCTS;
   product;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private cartService: CartService) { }
 
   ngOnInit(): void {
     //get the product id from the current route
@@ -23,6 +24,11 @@ export class ProductDetailComponent implements OnInit {
 
     // find the product that correspond with the id provided in route
     this.product = this.mockProducts.find(opt => opt.id === productIdFromRoute );
+  }
+
+  addToCart(item) {
+    this.cartService.addToCart(item);
+    window.alert("Product added to the cart.");
   }
 
 }
