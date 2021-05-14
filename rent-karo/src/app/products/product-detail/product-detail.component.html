@@ -1,4 +1,9 @@
-<div *ngIf="product">
-  <h2>Product Details</h2>
-  <h3>{{ product.name }}</h3>
+<div *ngIf="product" class="container-fluid" style="margin-top: 30%;">
+  <div>
+    <h2>Product Details :</h2>
+      <ul>
+        <li>Name: {{ product.name }}</li>
+        <li>Type: {{ product.type }}</li>
+      </ul>
+  </div>
 </div>
