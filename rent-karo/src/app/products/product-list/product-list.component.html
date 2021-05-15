@@ -1,7 +1,78 @@
-<h3 style="margin-top: 100px;">Products</h3>
+<!-- latest offer carousel : START -->
+<div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../../../assets/images/img1.png" class="d-block w-100 carousel-img" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../../../assets/images/img2.png" class="d-block w-100 carousel-img" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- latest offer carousel : END -->
+
+<div class="d-flex p-2 justify-content-evenly gap-3">
+  <div class="card text-center">
+    <img src="../../../assets/icons/box.png" alt="..." class="icon-img">
+    <div class="card-body">
+      <p class="card-text">Packages</p>
+    </div>
+  </div>
+  <div class="card text-center">
+    <img src="../../../assets/icons/furnitures.png" alt="..." class="icon-img">
+    <div class="card-body">
+      <p class="card-text">Furniture</p>
+    </div>
+  </div>
+  <div class="card text-center">
+    <img src="../../../assets/icons/box.png" alt="..." class="icon-img">
+    <div class="card-body">
+      <p class="card-text">Appliances</p>
+    </div>
+  </div>
+  <div class="card text-center">
+    <img src="../../../assets/icons/box.png" alt="..." class="icon-img">
+    <div class="card-body">
+      <p class="card-text">Electronics</p>
+    </div>
+  </div>
+  <div class="card text-center">
+    <img src="../../../assets/icons/box.png" alt="..." class="icon-img">
+    <div class="card-body">
+      <p class="card-text">Fitness</p>
+    </div>
+  </div>
+  <div class="card text-center">
+    <img src="../../../assets/icons/box.png" alt="..." class="icon-img">
+    <div class="card-body">
+      <p class="card-text">WFH Essentials</p>
+    </div>
+  </div>
+  <div class="card text-center">
+    <img src="../../../assets/icons/box.png" alt="..." class="icon-img">
+    <div class="card-body">
+      <p class="card-text">Miscellaneous</p>
+    </div>
+  </div>
+</div>
+
+<h3>Products</h3>
 
 <div>
   <ul *ngFor="let product of products">
     <li><a [routerLink]="['/products',product.id]">{{ product.name }}</a></li>
   </ul>
 </div>
+
