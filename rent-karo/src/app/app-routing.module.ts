@@ -8,13 +8,15 @@ import { PackageComponent } from "./package/package.component";
 import { ShippingComponent } from './shipping/shipping.component';
 import { ProductListComponent } from "./products/product-list/product-list.component";
 import { ProductDetailComponent } from "./products/product-detail/product-detail.component";
+import { FurnitureComponent } from './furniture/furniture.component';
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
   { path: 'products/:productId', component: ProductDetailComponent },
   { path: 'cart', component: CartComponent },
   { path: 'shipping', component: ShippingComponent },
-  { path: 'package', component: PackageComponent }
+  { path: 'package', component: PackageComponent },
+  { path: 'furniture', component: FurnitureComponent}
 ];
 
 @NgModule({
