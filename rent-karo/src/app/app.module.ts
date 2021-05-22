@@ -15,6 +15,7 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { PackageComponent } from './package/package.component';
 import { FurnitureComponent } from './furniture/furniture.component';
 import { ApplianceComponent } from './appliance/appliance.component';
+import { ElectronicComponent } from './electronic/electronic.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ApplianceComponent } from './appliance/appliance.component';
     ShippingComponent,
     PackageComponent,
     FurnitureComponent,
-    ApplianceComponent
+    ApplianceComponent,
+    ElectronicComponent
   ],
   imports: [
     BrowserModule,
