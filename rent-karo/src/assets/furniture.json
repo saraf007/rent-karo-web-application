@@ -1,0 +1,10 @@
+[
+  {
+    "name" : "bed",
+    "price" : 12
+  },
+  {
+    "name" : "mattress",
+    "price" : 15
+  }
+]

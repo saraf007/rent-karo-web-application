@@ -1,1 +1,3 @@
-<p>furniture-list works!</p>
+<div *ngFor="let furniture of furnitureItems | async">
+  <span>{{ furniture.name }}</span>
+</div>

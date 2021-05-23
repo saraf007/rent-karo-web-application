@@ -11,5 +11,4 @@ export class FurnitureComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
