@@ -1,3 +1,6 @@
-<div *ngFor="let furniture of furnitureItems | async">
-  <span>{{ furniture.name }}</span>
+<div *ngIf="furnitureList">
+  <span>{{ furnitureList.id }}</span>
+  <span>{{ furnitureList.name }}</span>
+  <span>{{ furnitureList.price }}</span>
+  <div *ngFor="let item of furnitureList.bedList.name ">{{ item }}</div>
 </div>

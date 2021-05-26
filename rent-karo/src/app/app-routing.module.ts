@@ -6,11 +6,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { PackageComponent } from "./package/package.component";
 import { ShippingComponent } from './shipping/shipping.component';
-import { ProductListComponent } from "./products/product-list/product-list.component";
-import { ProductDetailComponent } from "./products/product-detail/product-detail.component";
 import { FurnitureComponent } from './furniture/furniture.component';
 import { ApplianceComponent } from './appliance/appliance.component';
 import { ElectronicComponent } from './electronic/electronic.component';
+import { ProductListComponent } from "./products/product-list/product-list.component";
+import { ProductDetailComponent } from "./products/product-detail/product-detail.component";
 import { FurnitureListComponent } from './furniture/furniture-list/furniture-list.component';
 
 const routes: Routes = [
@@ -20,9 +20,9 @@ const routes: Routes = [
   { path: 'shipping', component: ShippingComponent },
   { path: 'appliance', component: ApplianceComponent },
   { path: 'package', component: PackageComponent },
-  { path: 'furniture', component: FurnitureComponent },
   { path: 'electronic', component: ElectronicComponent },
-  { path: 'furniture-list', component: FurnitureListComponent }
+  { path: 'furniture', component: FurnitureComponent },
+  { path: 'furniture-list/:furnitureId', component: FurnitureListComponent }
 ];
 
 @NgModule({

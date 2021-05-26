@@ -1,4 +1,9 @@
+// Angular
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+
+// Project
+import { Furniture } from '../furniture.model';
 import { FurnitureService } from '../furniture.service';
 
 @Component({
@@ -7,14 +12,33 @@ import { FurnitureService } from '../furniture.service';
   styleUrls: ['./furniture-list.component.css']
 })
 export class FurnitureListComponent implements OnInit {
-furnitureItems;
+  furnitures: Furniture[];
+  furnitureList;
 
-  constructor(private furnitureService: FurnitureService) {
-   }
+  constructor(private route: ActivatedRoute,
+    private furnitureService: FurnitureService) { }
 
   ngOnInit(): void {
-  this.furnitureItems = this.furnitureService.getFurniture();
-    console.log(this.furnitureItems);
+    this.getFurnitureListDetailFromFurnitureService();
+  }
+
+  displayFurnitureListBasedOnId() {
+    // get furniture id from route
+    const routeParams = this.route.snapshot.paramMap;
+    const furnitureIdFromRoute = Number(routeParams.get('furnitureId'));
+
+    // check if furniture id from route & furniture id from json data match
+    this.furnitureList = this.furnitures.find(f => f.id === furnitureIdFromRoute);
+  }
+
+  getFurnitureListDetailFromFurnitureService() {
+    this.furnitureService.getFurniture().subscribe(
+      (data: any) =>
+          {
+            this.furnitures = data;
+            console.log(this.furnitures);
+            this.displayFurnitureListBasedOnId();
+           });
   }
 
 }

@@ -1,60 +1,10 @@
 <div class="row row-cols-1 row-cols-md-3 g-4 container-fluid">
-  <div class="col">
+  <div class="col" *ngFor="let furniture of furnitureList">
     <div class="card h-100">
       <div class="card-body text-center">
-      <img src="../../assets/images/beds.png" class="card-img-top" alt="..." style="width: 30%; margin: auto;">
+      <img [src]="furniture.imgUrl" class="card-img-top" alt="furnitures">
         <h5 class="card-title text-center">
-          <a routerLink="/furniture-list" class="stretched-link">Beds</a>
-        </h5>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body text-center">
-      <img src="../../assets//images/mattress.png" class="card-img-top" alt="..." style="width: 30%; margin: auto;">
-        <h5 class="card-title text-center">
-          <a routerLink="/furniture-list" class="stretched-link">Mattress</a>
-        </h5>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body text-center">
-      <img src="../../assets/images/closet.png" class="card-img-top" alt="..." style="width: 30%; margin: auto;">
-        <h5 class="card-title text-center">
-          <a routerLink="/furniture-list" class="stretched-link">Wardrobe</a>
-        </h5>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body text-center">
-      <img src="../../assets/images/sofa.png" class="card-img-top" alt="..." style="width: 30%; margin: auto;">
-        <h5 class="card-title text-center">
-          <a routerLink="/furniture-list" class="stretched-link">Sofa</a>
-        </h5>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body text-center">
-      <img src="../../assets/images/shoe-rack.png" class="card-img-top" alt="..." style="width: 30%; margin: auto;">
-        <h5 class="card-title text-center">
-          <a routerLink="/furniture-list" class="stretched-link">Shoe Rack</a>
-        </h5>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body text-center">
-      <img src="../../assets/images/study.png" class="card-img-top" alt="..." style="width: 30%; margin: auto;">
-        <h5 class="card-title text-center">
-          <a routerLink="/furniture-list" class="stretched-link">Study Table</a>
+          <a class="stretched-link" [routerLink]="['/furniture-list',furniture.id]">{{ furniture.name }}</a>
         </h5>
       </div>
     </div>
