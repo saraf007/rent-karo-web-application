@@ -23,64 +23,17 @@
 </div>
 <!-- latest offer carousel : END -->
 
-<div class="d-flex p-2 justify-content-evenly gap-3">
-  <div class="card text-center">
-    <img src="../../../assets/icons/box.png" alt="..." class="icon-img">
-    <div class="card-body">
-      <p class="card-text">
-        <a class="stretched-link" routerLink="/package">Packages</a>
-      </p>
-    </div>
-  </div>
-  <div class="card text-center">
-    <img src="../../../assets/icons/lamp.png" alt="..." class="icon-img">
-    <div class="card-body">
-      <p class="card-text">
-        <a class="stretched-link" routerLink="/furniture">Furniture</a>
-      </p>
-    </div>
-  </div>
-  <div class="card text-center">
-    <img src="../../../assets/icons/washing-machine.png" alt="..." class="icon-img">
-    <div class="card-body">
-      <p class="card-text">
-        <a class="stretched-link" routerLink="/appliance">Appliances</a>
-      </p>
-    </div>
-  </div>
-  <div class="card text-center">
-    <img src="../../../assets/icons/television.png" alt="..." class="icon-img">
-    <div class="card-body">
-      <p class="card-text">
-        <a class="stretched-link" routerLink="/electronic">Electronics</a>
-      </p>
-    </div>
-  </div>
-  <div class="card text-center">
-    <img src="../../../assets/icons/treadmill.png" alt="..." class="icon-img">
-    <div class="card-body">
-      <p class="card-text">Fitness</p>
-    </div>
-  </div>
-  <div class="card text-center">
-    <img src="../../../assets/icons/table.png" alt="..." class="icon-img">
-    <div class="card-body">
-      <p class="card-text">WFH Essentials</p>
-    </div>
-  </div>
-  <div class="card text-center">
-    <img src="../../../assets/icons/add.png" alt="..." class="icon-img">
-    <div class="card-body">
-      <p class="card-text">Miscellaneous</p>
+<!-- main product list : START -->
+<div class="row row-cols-1 row-cols-md-3 g-4 container-fluid mt-1">
+  <div class="col" *ngFor="let product of products">
+    <div class="card text-center">
+      <img [src]="product.imgUrl" class="icon-img" alt="product">
+      <div class="card-body text-center">
+        <p class="card-text">
+          <a class="stretched-link" [routerLink]="product.routerLink">{{ product.name }}</a>
+        </p>
+      </div>
     </div>
   </div>
 </div>
-
-<!-- <h3>Products</h3>
-
-<div>
-  <ul *ngFor="let product of products">
-    <li><a [routerLink]="['/products',product.id]">{{ product.name }}</a></li>
-  </ul>
-</div> -->
-
+<!-- main product list : END -->

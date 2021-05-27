@@ -4,9 +4,26 @@
     "name" : "Bed",
     "price" : 12,
     "imgUrl": "./assets/images/beds.png",
-    "bedList": {
-      "name": ["Bed1", "Bed2", "Bed3"]
-    }
+    "bedList": [
+      {
+        "bedId": 1,
+        "bedName": "Bed Name 1",
+        "bedPrice": 449,
+        "imgUrl": "./assets/images/beds.png"
+      },
+      {
+        "bedId": 2,
+        "bedName": "Bed Name 2",
+        "bedPrice": 600,
+        "imgUrl": "./assets/images/beds.png"
+      },
+      {
+        "bedId": 3,
+        "bedName": "Bed Name 3",
+        "bedPrice": 800,
+        "imgUrl": "./assets/images/beds.png"
+      }
+    ]
   },
   {
     "id": 2,

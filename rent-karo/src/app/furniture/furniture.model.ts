@@ -3,5 +3,5 @@ export interface Furniture {
   name: string,
   price: string,
   imgUrl: string,
-  bedList: string[]
+  bedList: []
 }
