@@ -47,9 +47,12 @@
           <li>1 Tread Mill</li>
         </ul>
       </td>
-      <td><button type="button" class="btn btn-primary">
-        Buy Premium @ Rs.{{ premiumPrice }} / {{ packageDuration }}
-      </button></td>
+      <td><a (click)="addPremiumPackage(packageDuration)">
+            <button type="button" class="btn btn-primary">
+              Buy Premium @ Rs.{{ premiumPrice }} / {{ packageDuration }}
+            </button>
+         </a>
+      </td>
     </tr>
     <tr>
       <th scope="row">2</th>

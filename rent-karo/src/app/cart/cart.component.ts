@@ -11,12 +11,13 @@ import { CartService } from "./cart.service";
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  items = this.cartService.getItems();
+  items = [];
 
   constructor(private cartService: CartService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.items = this.cartService.getItems();
   }
 
   checkOutForm = this.formBuilder.group({

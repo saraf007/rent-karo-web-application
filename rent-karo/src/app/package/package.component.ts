@@ -1,6 +1,9 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
 
+// Project
+import { CartService } from '../cart/cart.service';
+
 @Component({
   selector: 'app-package',
   templateUrl: './package.component.html',
@@ -21,9 +24,10 @@ export class PackageComponent implements OnInit {
   basicPrice;
   packageDuration;
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.showWeeklyPackage();
   }
 
   showWeeklyPackage() {
@@ -51,6 +55,39 @@ export class PackageComponent implements OnInit {
     this.standardPrice = 3000;
     this.basicPrice = 2000;
     this.packageDuration = "year";
+  }
+
+  addPremiumPackage(packageDuration: any) {
+    alert(`package added for: ${packageDuration}`);
+    this.isPremium = true;
+    if(this.isPremium)
+      {
+        if (packageDuration === "week") {
+          const itemDetail = {
+            'Price': 10000,
+            'Quantity': 1,
+            'Description': 'Weekly Premium Package'
+          };
+          this.cartService.cartItemCount(itemDetail.Quantity);
+          this.cartService.addToCart(itemDetail);
+        }
+        else if (packageDuration === "month") {
+          const itemDetail = {
+            'Price': 7000,
+            'Quantity': 1,
+            'Description': 'Monthly Premium Package'
+          };
+          this.cartService.addToCart(itemDetail);
+        }
+        else {
+          const itemDetail = {
+            'Price': 7000,
+            'Quantity': 1,
+            'Description': 'Monthly Premium Package'
+          };
+          this.cartService.addToCart(itemDetail);
+        }
+      }
   }
 
 }

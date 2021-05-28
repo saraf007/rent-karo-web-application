@@ -1,12 +1,11 @@
-<div class="cart-item">
-  <h3>Cart</h3>
-  <p><a routerLink="/shipping">Shipping Cost</a></p>
+<div class="cart-item container-fluid">
+  <h3>My Cart</h3>
   <div *ngFor="let item of items">
-    <p>{{ item.name }}</p>
-    <p>{{ item.type }}</p>
+    <h5>Item Name:</h5><p>{{ item.Description }}</p>
+    <h5>Price:</h5><p>{{ item.Price }}</p>
+    <h5>Quantity:</h5><p>{{ item.Quantity }}</p>
   </div>
-</div>
-
+  <p><a routerLink="/shipping">Shipping Cost</a></p>
 <form [formGroup]="checkOutForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="name">Name</label>
@@ -18,4 +17,6 @@
   </div>
   <button type="submit" class="btn btn-primary">Purchase</button>
 </form>
+</div>
+
 

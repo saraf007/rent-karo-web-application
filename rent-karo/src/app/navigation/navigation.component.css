@@ -1,0 +1,10 @@
+.badge {
+  position: relative;
+  right: 8px;
+  top: -13px;
+}
+
+.bg-secondary {
+  padding: 4px;
+  border-radius: 15px;
+}
