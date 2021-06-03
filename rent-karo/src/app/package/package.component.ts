@@ -64,9 +64,10 @@ export class PackageComponent implements OnInit {
       {
         if (packageDuration === "week") {
           const itemDetail = {
+            'id': 1,
             'Price': 10000,
             'Quantity': 1,
-            'Description': 'Weekly Premium Package'
+            'Description': 'Weekly Premium Package',
           };
           this.cartService.cartItemCount(itemDetail.Quantity);
           this.cartService.addToCart(itemDetail);
