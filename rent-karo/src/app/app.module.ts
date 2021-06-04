@@ -18,6 +18,7 @@ import { ApplianceComponent } from './appliance/appliance.component';
 import { ElectronicComponent } from './electronic/electronic.component';
 import { FurnitureListComponent } from './furniture/furniture-list/furniture-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FooterComponent } from './footer/footer.component';
     ElectronicComponent,
     FurnitureListComponent,
     FooterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

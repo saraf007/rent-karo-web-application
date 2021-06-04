@@ -27,9 +27,23 @@
                 <span class="badge bg-secondary">{{ itemCount }}</span>Cart
               </button>
             </a>
-            <button type="button" class="btn btn-outline-primary">LOGIN / SIGNUP </button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              LOGIN / SIGNUP
+            </button>
         </div>
       </div>
     </div>
   </div>
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body">
+        <app-login></app-login>
+      </div>
+    </div>
+  </div>
+</div>

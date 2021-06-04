@@ -12,6 +12,7 @@ import { ElectronicComponent } from './electronic/electronic.component';
 import { ProductListComponent } from "./products/product-list/product-list.component";
 import { ProductDetailComponent } from "./products/product-detail/product-detail.component";
 import { FurnitureListComponent } from './furniture/furniture-list/furniture-list.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'package', component: PackageComponent },
   { path: 'electronic', component: ElectronicComponent },
   { path: 'furniture', component: FurnitureComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'furniture-list/:furnitureId', component: FurnitureListComponent }
 ];
 
