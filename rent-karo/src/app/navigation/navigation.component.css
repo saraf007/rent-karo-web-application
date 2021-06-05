@@ -8,3 +8,9 @@
   padding: 4px;
   border-radius: 15px;
 }
+
+.close-button-style {
+  margin-left: auto;
+  top: 7px;
+  right: 10px;
+}
