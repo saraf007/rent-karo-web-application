@@ -1,3 +1,5 @@
+// Angular
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -19,6 +21,11 @@ export class LoginComponent implements OnInit {
 
   switchModeToSignup() {
     this.isLoginModeSignup = true;
+  }
+
+  onSubmit(form: NgForm) {
+    console.log(form.value);
+    form.reset();
   }
 
 }

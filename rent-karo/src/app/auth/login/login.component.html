@@ -3,23 +3,24 @@
     <div class="col"><img src="../../../assets/images/login-img.png" class="img-fluid" alt="..."></div>
     <div class="col">
 
-      <form>
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
         <div class="mb-3">
           <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <input type="email" class="form-control" id="email" aria-describedby="email" ngModel name="email" required email>
+          <div id="email" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password">
+          <input type="password" class="form-control" id="password" ngModel name="password" required minlength="6">
         </div>
         <div class="mb-3" *ngIf="isLoginModeSignup">
           <label for="password" class="form-label">Confirm Password</label>
-          <input type="password" class="form-control" id="password">
+          <input type="password" class="form-control" id="password" ngModel name="confirmpassword" required>
         </div>
         <button type="submit" class="btn btn-primary" (click)="switchModeToLogin()">Login</button> |
         <button type="submit" class="btn btn-primary" (click)="switchModeToSignup()">Sign Up</button>
       </form>
+
     </div>
   </div>
 </div>
