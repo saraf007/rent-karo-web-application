@@ -20,6 +20,7 @@ import { ElectronicComponent } from './electronic/electronic.component';
 import { FurnitureListComponent } from './furniture/furniture-list/furniture-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
+import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LoginComponent } from './auth/login/login.component';
     FurnitureListComponent,
     FooterComponent,
     LoginComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

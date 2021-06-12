@@ -1,8 +1,15 @@
-<div class="container-fluid">
+<div *ngIf="isLoading" style="text-align: center;">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="error">
+  {{ error }}
+</div>
+
+<div class="container-fluid" *ngIf="!isLoading">
   <div class="row">
     <div class="col"><img src="../../../assets/images/login-img.png" class="img-fluid" alt="..."></div>
     <div class="col">
-
       <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
         <!-- Email -->
         <div class="mb-3">
