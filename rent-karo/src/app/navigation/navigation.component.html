@@ -27,8 +27,11 @@
                 <span class="badge bg-secondary">{{ itemCount }}</span>Cart
               </button>
             </a>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" *ngIf="!isAuthenticated">
               LOGIN / SIGNUP
+            </button>
+            <button type="button" class="btn btn-primary" *ngIf="isAuthenticated">
+              LOGOUT
             </button>
         </div>
       </div>
@@ -37,7 +40,8 @@
 </nav>
 
 <!-- Login Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true" *ngIf="!isAuthenticated">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="position-relative close-button-style">

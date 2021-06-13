@@ -1,9 +1,12 @@
 // Angular
 import { Component, OnDestroy, OnInit } from '@angular/core';
+
+// RXJSa
 import { Subscription } from 'rxjs';
 
 // Project
 import { CartService } from '../cart/cart.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -11,6 +14,8 @@ import { CartService } from '../cart/cart.service';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit, OnDestroy {
+  isAuthenticated = false;
+  private userSub: Subscription;
   subscription: Subscription;
   items = [];
   itemCount: number;
@@ -22,12 +27,19 @@ export class NavigationComponent implements OnInit, OnDestroy {
   ]
   cityId: number;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private authService: AuthService) {
     // subscribe to item count stream
     this.subscription = cartService.itemCount$.subscribe(count => { this.itemCount = count });
   }
 
   ngOnInit(): void {
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = !user ? false : true;
+      if (this.isAuthenticated) {
+        const removeModalBackdrop = document.getElementsByClassName("modal-backdrop")[0];
+        removeModalBackdrop.classList.remove("show");
+      }
+    })
   }
 
   setCityId(cityId: number) {
@@ -37,5 +49,8 @@ export class NavigationComponent implements OnInit, OnDestroy {
   // prevent memory leak
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.userSub.unsubscribe();
   }
+
+
 }
