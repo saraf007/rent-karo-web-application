@@ -13,24 +13,32 @@ import { CartService } from "./cart.service";
 export class CartComponent implements OnInit {
   items = [];
 
+  checkOutForm = this.formBuilder.group({
+    name: '',
+    address: ''
+  });
+
   constructor(private cartService: CartService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
     if (this.items.length > 1) {
-      
     }
   }
 
-  checkOutForm = this.formBuilder.group({
-    name: '',
-    address: ''
-  });
 
+  // on purchase of orders
   onSubmit(): void {
+    this.cartService.onPurchase(this.checkOutForm.value).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      }
+    )
     this.items = this.cartService.clearCart();
-    console.warn('Your order has been submitted.', this.checkOutForm.value);
     this.checkOutForm.reset();
   }
 }

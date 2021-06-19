@@ -38,6 +38,9 @@ export class NavigationComponent implements OnInit, OnDestroy {
       if (this.isAuthenticated) {
         const removeModalBackdrop = document.getElementsByClassName("modal-backdrop")[0];
         removeModalBackdrop.classList.remove("show");
+        const removeModalBackdrop1 = document.getElementsByClassName("modal-open")[0];
+        removeModalBackdrop1.removeAttribute("style");
+        removeModalBackdrop1.classList.remove("modal-open");
       }
     })
   }

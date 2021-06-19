@@ -9,6 +9,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
+  baseUrl = "https://rentify-41b00-default-rtdb.firebaseio.com/";
   items = [];
 
   // create a subject
@@ -40,5 +41,12 @@ export class CartService {
   // emit subject for other component to consume
   cartItemCount(item: number) {
     this.itemCount.next(item);
+  }
+
+  // POST method for creating purchase data
+  onPurchase(purchaseData: { name: string, address: string }) {
+    console.log(purchaseData);
+    const onPurchaseUrl = `${this.baseUrl}/posts.json`;
+    return this.http.post(onPurchaseUrl, purchaseData);
   }
 }
