@@ -49,4 +49,8 @@ export class CartService {
     const onPurchaseUrl = `${this.baseUrl}/posts.json`;
     return this.http.post(onPurchaseUrl, purchaseData);
   }
+
+  getDetails() {
+    return this.http.get(`${this.baseUrl}/posts.json`);
+  }
 }

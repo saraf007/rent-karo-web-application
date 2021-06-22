@@ -36,17 +36,21 @@ export class NavigationComponent implements OnInit, OnDestroy {
     this.userSub = this.authService.user.subscribe(user => {
       this.isAuthenticated = !user ? false : true;
       if (this.isAuthenticated) {
-        const removeModalBackdrop = document.getElementsByClassName("modal-backdrop")[0];
-        removeModalBackdrop.classList.remove("show");
-        const removeModalBackdrop1 = document.getElementsByClassName("modal-open")[0];
-        removeModalBackdrop1.removeAttribute("style");
-        removeModalBackdrop1.classList.remove("modal-open");
+          this.removeModalAfterLogin();
       }
     })
   }
 
   setCityId(cityId: number) {
     this.cityId = cityId;
+  }
+
+  private removeModalAfterLogin() {
+    const removeModalBackdrop = document.getElementsByClassName("modal-backdrop")[0];
+    removeModalBackdrop.classList.remove("modal-backdrop");
+    const removeModalBackdrop1 = document.getElementsByClassName("modal-open")[0];
+    removeModalBackdrop1.removeAttribute("style");
+    removeModalBackdrop1.classList.remove("modal-open");
   }
 
   // prevent memory leak

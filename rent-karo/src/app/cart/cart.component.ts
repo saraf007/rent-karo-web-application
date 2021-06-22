@@ -41,4 +41,10 @@ export class CartComponent implements OnInit {
     this.items = this.cartService.clearCart();
     this.checkOutForm.reset();
   }
+
+  getDetails() {
+    this.cartService.getDetails().subscribe(data => {
+      console.log(data);
+    })
+  }
 }
