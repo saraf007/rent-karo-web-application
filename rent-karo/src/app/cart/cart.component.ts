@@ -11,6 +11,7 @@ import { CartService } from "./cart.service";
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  isCartEmpty = false;
   items = [];
 
   checkOutForm = this.formBuilder.group({
@@ -23,7 +24,8 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
-    if (this.items.length > 1) {
+    if (this.items.length < 1) {
+      this.isCartEmpty = true;
     }
   }
 
