@@ -21,6 +21,7 @@ import { FurnitureListComponent } from './furniture/furniture-list/furniture-lis
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
+import { CheckoutComponent } from "./cart/checkout/checkout.component";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinne
     FurnitureListComponent,
     FooterComponent,
     LoginComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

@@ -11,39 +11,5 @@
   </div>
 </div>
 
-<div class="cart-item container-fluid" *ngIf="!isCartEmpty">
-  <h3>My Cart</h3>
-  <div class="accordion accordion-flush" id="accordion" *ngFor="let item of items">
- <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-       data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        {{ item.Description }}
-      </button>
-    </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
-      <div class="accordion-body">Price : {{ item.Price }}, Quantity : {{ item.Quantity}}</div>
-    </div>
-  </div>
-</div>
-
-<p><a routerLink="/shipping">Shipping Cost</a></p>
-
-<form [formGroup]="checkOutForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">Name</label>
-    <input id="name" type="text" formControlName="name">
-  </div>
-  <div>
-    <label for="address">Address</label>
-    <input id="address" type="text" formControlName="address">
-  </div>
-  <button type="submit" class="btn btn-primary">Purchase</button>
-</form>
-</div>
-
-<!-- <button type="submit" class="btn btn-primary" (click)="getDetails()">Get details</button> -->
-
-
-
-
+<!-- checkout -->
+<app-checkout *ngIf="!isCartEmpty"></app-checkout>
