@@ -23,6 +23,7 @@ export class CartService {
 
   addToCart(item) {
     this.items.push(item);
+    localStorage.setItem("item", JSON.stringify(item));
   }
 
   getItems() {

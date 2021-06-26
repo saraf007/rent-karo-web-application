@@ -1,20 +1,38 @@
-<!--
-<div class="cart-item container-fluid">
-  <div class="accordion accordion-flush" id="accordion" *ngFor="let item of items">
- <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-       data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        {{ item.Description }}
-      </button>
-    </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
-      <div class="accordion-body">Price : {{ item.Price }}, Quantity : {{ item.Quantity}}</div>
+<!-- navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Rentify</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="d-flex">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+           <div class="btn btn-primary">Checkout</div>
+           <div class="btn btn-primary">Verification</div>
+           <div class="btn btn-primary">Delivery</div>
+        </div>
+      </div>
     </div>
   </div>
-</div> -->
+</nav>
 
-<p><a routerLink="/shipping">Shipping Cost</a></p>
+<!-- coupon section -->
+<div class="container justify-content-center">
+  <div class="card">
+    <div class="card-body" style="width: 20rem;">
+      <span>
+        <img src="../../../assets/icons/coupon.png" class="img-fluid" alt="coupon" style="width: 10%;">
+        <span style="position: relative; left: 1rem;">Coupon</span>
+        <i class="bi bi-caret-right" style="position: relative; left: 10rem;"></i>
+      </span>
+      </div>
+    </div>
+  </div>
+
+
+<!-- <p><a routerLink="/shipping">Shipping Cost</a></p> -->
 
 <!-- <form [formGroup]="checkOutForm" (ngSubmit)="onSubmit()">
   <div>
