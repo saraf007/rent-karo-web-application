@@ -8,7 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CheckoutComponent implements OnInit {
+  coupons = [
+    {
+      name: "WFH50",
+      value: 50
+    },
+    {
+      name: "NEW20",
+      value: 20
+    }
+  ];
+
+  isCouponApplied = false;
+
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.coupons);
+  }
 }
