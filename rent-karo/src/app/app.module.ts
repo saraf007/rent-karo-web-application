@@ -22,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
 import { CheckoutComponent } from "./cart/checkout/checkout.component";
+import { CouponComponent } from "./cart/coupon/coupon.component";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CheckoutComponent } from "./cart/checkout/checkout.component";
     FooterComponent,
     LoginComponent,
     LoadingSpinnerComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CouponComponent
   ],
   imports: [
     BrowserModule,
