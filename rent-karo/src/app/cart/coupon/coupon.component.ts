@@ -1,6 +1,9 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
 
+// Project
+import { AlertService } from '../../shared/alert/alert.service';
+
 @Component({
   selector: 'app-coupon',
   templateUrl: './coupon.component.html',
@@ -19,7 +22,7 @@ export class CouponComponent implements OnInit {
   ];
   couponName : string = "";
 
-  constructor() { }
+  constructor(private alertService: AlertService) { }
 
   ngOnInit() {
   }
@@ -32,6 +35,7 @@ export class CouponComponent implements OnInit {
     if (couponName !== null && couponName !== undefined) {
       if (this.coupons.some(x => x.name.toLowerCase() === couponName.toLowerCase())) {
         console.log("correct");
+        this.alertService.successAlert("Coupon applied succesfully.")
       }
       else {
         console.log("wrong");

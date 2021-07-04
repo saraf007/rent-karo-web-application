@@ -23,6 +23,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
 import { CheckoutComponent } from "./cart/checkout/checkout.component";
 import { CouponComponent } from "./cart/coupon/coupon.component";
+import { AlertComponent } from "./shared/alert/alert.component";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CouponComponent } from "./cart/coupon/coupon.component";
     LoginComponent,
     LoadingSpinnerComponent,
     CheckoutComponent,
-    CouponComponent
+    CouponComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
