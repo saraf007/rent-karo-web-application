@@ -1,0 +1,21 @@
+.alert-div {
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 3%;
+}
+
+.icon-span-success {
+  margin-right: 10px;
+}
+
+.icon-span-warning {
+  margin-right: 10px;
+}
+
+.icon-span-error {
+  margin-right: 10px;
+}
+
+.icon-span-info {
+  margin-right: 10px;
+}

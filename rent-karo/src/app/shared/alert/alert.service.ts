@@ -25,7 +25,7 @@ export class AlertService {
     this.alertSubject.next(new Alert(AlertType.warning, message, timeout));
   }
 
-  errorAlert(message: string, timeout = 3000) {
+  errorAlert(message: string, timeout?) {
     this.alertSubject.next(new Alert(AlertType.error, message, timeout));
   }
 

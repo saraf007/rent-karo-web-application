@@ -29,7 +29,6 @@ export class CartComponent implements OnInit {
     }
   }
 
-
   // on purchase of orders
   onSubmit(): void {
     this.cartService.onPurchase(this.checkOutForm.value).subscribe(

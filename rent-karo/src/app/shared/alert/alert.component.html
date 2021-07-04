@@ -1,1 +1,26 @@
-<div *ngFor="let alert of alerts">{{ alert.message }}</div>
+<div *ngFor="let alert of alerts">
+  <!-- success -->
+  <div *ngIf="alert.type == 0" class="alert alert-success alert-div alert-dismissible fade show" role="alert">
+    <span class="icon-span-success"><i class="bi bi-check-circle" style="color: #0f5132;"></i></span>
+            {{ alert.message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <!-- warning -->
+  <div *ngIf="alert.type == 1" class="alert alert-warning alert-div alert-dismissible fade show" role="alert">
+    <span class="icon-span-warning"><i class="bi bi-exclamation-circle" style="color: #664d03;"></i></span>
+            {{ alert.message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <!-- error -->
+  <div *ngIf="alert.type == 2" class="alert alert-danger alert-div alert-dismissible fade show" role="alert">
+    <span class="icon-span-error"><i class="bi bi-exclamation-octagon" style="color: #842029;"></i></span>
+            {{ alert.message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <!-- info -->
+  <div *ngIf="alert.type == 3" class="alert alert-primary alert-div alert-dismissible fade show" role="alert">
+    <span class="icon-span-info"><i class="bi bi-info-circle" style="color: #084298;"></i></span>
+            {{ alert.message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div>

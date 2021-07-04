@@ -27,18 +27,19 @@ export class CouponComponent implements OnInit {
   ngOnInit() {
   }
 
+  // apply coupon
   onApplyCoupon(couponName: string, couponValue: number) {
     this.couponName = couponName;
   }
 
+  // check coupon validity
   onCheckCouponValidity(couponName: string) {
     if (couponName !== null && couponName !== undefined) {
       if (this.coupons.some(x => x.name.toLowerCase() === couponName.toLowerCase())) {
-        console.log("correct");
-        this.alertService.successAlert("Coupon applied succesfully.")
+        this.alertService.successAlert(`${couponName} code applied succesfully.`);
       }
       else {
-        console.log("wrong");
+        this.alertService.errorAlert(`Failed to apply ${couponName} coupon code.`);
       }
     }
   }
