@@ -20,7 +20,11 @@ export class CartComponent implements OnInit {
   });
 
   constructor(private cartService: CartService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder) {
+      this.cartService.itemCount$.subscribe(item => {
+        this.items.push(item);
+      })
+     }
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();

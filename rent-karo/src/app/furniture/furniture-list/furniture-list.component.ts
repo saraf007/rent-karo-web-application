@@ -1,6 +1,7 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import { CartService } from '../../cart/cart.service';
 
 // Project
 import { Furniture } from '../furniture.model';
@@ -12,11 +13,13 @@ import { FurnitureService } from '../furniture.service';
   styleUrls: ['./furniture-list.component.css']
 })
 export class FurnitureListComponent implements OnInit {
+  itemCount = 0;
   furnitures: Furniture[];
   furnitureList;
 
   constructor(private route: ActivatedRoute,
-    private furnitureService: FurnitureService) { }
+    private furnitureService: FurnitureService,
+    private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getFurnitureListDetailFromFurnitureService();
@@ -39,6 +42,12 @@ export class FurnitureListComponent implements OnInit {
             console.log(this.furnitures);
             this.displayFurnitureListBasedOnId();
            });
+  }
+
+  onAddToCart() {
+    this.itemCount = this.itemCount + 1;
+    console.log(this.itemCount);
+    this.cartService.addToCart(this.itemCount);
   }
 
 }

@@ -20,10 +20,10 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-
   addToCart(item) {
     this.items.push(item);
-    localStorage.setItem("item", JSON.stringify(item));
+    this.itemCount.next(item);
+    //localStorage.setItem("item", JSON.stringify(item));
   }
 
   getItems() {

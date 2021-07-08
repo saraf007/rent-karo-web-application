@@ -5,7 +5,9 @@
       <div class="card-body text-center">
         <h5 class="card-title text-center">{{ furniture.bedName }}</h5>
       </div>
-      <div class="card-footer">Rs.{{ furniture.bedPrice }}/mo</div>
+      <div class="card-footer">Rs.{{ furniture.bedPrice }}/mo
+        <button type="button" class="btn btn-primary" (click)="onAddToCart()">Add to cart</button>
+      </div>
     </div>
   </div>
 </div>
