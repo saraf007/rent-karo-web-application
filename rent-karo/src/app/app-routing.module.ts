@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Project
 import { CartComponent } from './cart/cart.component';
-import { PackageComponent } from "./package/package.component";
 import { ShippingComponent } from './shipping/shipping.component';
 import { FurnitureComponent } from './furniture/furniture.component';
 import { ApplianceComponent } from './appliance/appliance.component';
@@ -21,7 +20,6 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'shipping', component: ShippingComponent },
   { path: 'appliance', component: ApplianceComponent },
-  { path: 'package', component: PackageComponent },
   { path: 'electronic', component: ElectronicComponent },
   { path: 'furniture', component: FurnitureComponent },
   { path: 'login', component: LoginComponent },
