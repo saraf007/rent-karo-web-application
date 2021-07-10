@@ -21,7 +21,7 @@ export class CartService {
   constructor(private http: HttpClient) { }
 
   addToCart(item) {
-    this.items.push(item);
+    //this.items.push(item);
     this.itemCount.next(item);
     //localStorage.setItem("item", JSON.stringify(item));
   }

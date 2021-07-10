@@ -1,10 +1,10 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { CartService } from '../../cart/cart.service';
 
 // Project
 import { Furniture } from '../furniture.model';
+import { CartService } from '../../cart/cart.service';
 import { FurnitureService } from '../furniture.service';
 
 @Component({

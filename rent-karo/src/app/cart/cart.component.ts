@@ -23,14 +23,20 @@ export class CartComponent implements OnInit {
     private formBuilder: FormBuilder) {
       this.cartService.itemCount$.subscribe(item => {
         this.items.push(item);
+        if (item) {
+          this.isCartEmpty = false;
+        }
+        else {
+          this.isCartEmpty = true;
+        }
       })
      }
 
   ngOnInit(): void {
-    this.items = this.cartService.getItems();
-    if (this.items.length < 1) {
-      this.isCartEmpty = true;
-    }
+    // this.items = this.cartService.getItems();
+    // if (this.items.length < 1) {
+    //   this.isCartEmpty = true;
+    // }
   }
 
   // on purchase of orders
