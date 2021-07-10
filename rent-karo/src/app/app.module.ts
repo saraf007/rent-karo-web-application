@@ -21,8 +21,9 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
 import { CheckoutComponent } from "./cart/checkout/checkout.component";
-import { CouponComponent } from "./cart/coupon/coupon.component";
+import { CouponComponent } from "./cart/checkout/coupon/coupon.component";
 import { AlertComponent } from "./shared/alert/alert.component";
+import { OrderDetailComponent } from "./cart/checkout/order/order-detail.component";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AlertComponent } from "./shared/alert/alert.component";
     LoadingSpinnerComponent,
     CheckoutComponent,
     CouponComponent,
-    AlertComponent
+    AlertComponent,
+    OrderDetailComponent
   ],
   imports: [
     BrowserModule,

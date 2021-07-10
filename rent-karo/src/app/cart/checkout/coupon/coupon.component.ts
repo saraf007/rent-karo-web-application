@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Project
-import { AlertService } from '../../shared/alert/alert.service';
+import { AlertService } from '../../../shared/alert/alert.service';
 
 @Component({
   selector: 'app-coupon',
