@@ -1,1 +1,6 @@
 <p>Order detail</p>
+
+<div *ngFor="let item of orderDetails">
+  {{ item.bedId }} | {{item.bedName}} | {{item.bedPrice}}
+  <img [src]="item.imgUrl">
+</div>

@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   baseUrl = "https://rentify-41b00-default-rtdb.firebaseio.com/";
-  items = [];
+  orderDetails = [];
 
   // create a subject
   itemCount = new BehaviorSubject<number>(0);
@@ -20,19 +20,21 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-  addToCart(item) {
-    //this.items.push(item);
+  countItems(item) {
     this.itemCount.next(item);
-    //localStorage.setItem("item", JSON.stringify(item));
   }
 
-  getItems() {
-    return this.items;
+  addToCart(item) {
+    this.orderDetails.push(item);
+  }
+
+  getOrderDetails() {
+    return this.orderDetails;
   }
 
   clearCart() {
-    this.items = [];
-    return this.items;
+    this.orderDetails = [];
+    return this.orderDetails;
   }
 
   getShippingPrice() {

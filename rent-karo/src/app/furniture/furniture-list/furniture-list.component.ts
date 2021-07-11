@@ -44,10 +44,10 @@ export class FurnitureListComponent implements OnInit {
            });
   }
 
-  onAddToCart() {
+  onAddToCart(furnitureDetail: any) {
     this.itemCount = this.itemCount + 1;
-    console.log(this.itemCount);
-    this.cartService.addToCart(this.itemCount);
+    this.cartService.countItems(this.itemCount);
+    this.cartService.addToCart(furnitureDetail);
   }
 
 }
