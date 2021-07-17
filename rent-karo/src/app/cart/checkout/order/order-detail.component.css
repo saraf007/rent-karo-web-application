@@ -1,0 +1,29 @@
+.custom-img-style {
+    width: 50%;
+    margin: auto;
+}
+
+h2 {
+  font-size: 14px;
+  color: #313131;
+}
+
+.custom-trash-icon-style {
+  margin-left: 60%;
+  font-size: 1rem;
+}
+
+.custom-list-style {
+  margin-left: 28%;
+}
+
+.custom-list-element-style {
+  margin-bottom: -5px;
+  font-size: 14px;
+}
+
+.custom-dropdown-style {
+  margin-left: 64%;
+  position: relative;
+  bottom: 29px;
+}

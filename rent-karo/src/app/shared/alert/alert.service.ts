@@ -13,7 +13,7 @@ export class AlertService {
 
   constructor() { }
 
-  infoAlert(message: string, timeout = 3000) {
+  infoAlert(message: string, timeout?) {
     this.alertSubject.next(new Alert(AlertType.info, message, timeout));
   }
 
@@ -21,7 +21,7 @@ export class AlertService {
     this.alertSubject.next(new Alert(AlertType.success, message, timeout));
   }
 
-  warningAlert(message: string, timeout = 3000) {
+  warningAlert(message: string, timeout?) {
     this.alertSubject.next(new Alert(AlertType.warning, message, timeout));
   }
 

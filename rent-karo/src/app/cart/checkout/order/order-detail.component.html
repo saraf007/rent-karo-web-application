@@ -1,6 +1,74 @@
-<p>Order detail</p>
+<!-- alert -->
+<div style="margin-top: 5px;">
+  <app-alert></app-alert>
+</div>
 
-<div *ngFor="let item of orderDetails">
-  {{ item.bedId }} | {{item.bedName}} | {{item.bedPrice}}
-  <img [src]="item.imgUrl">
+<!-- Order detail -->
+<div *ngIf="!isOrderDeleted">
+  <div class="container justify-content-center" *ngFor="let order of orderDetails" style="margin-top: 3%;">
+    <div class="card" style="width: 18rem;">
+      <img [src]="order.imgUrl" class="img-fluid custom-img-style">
+      <div class="card-body" style="margin-bottom: -40px;">
+        <div>
+          <h2>
+            <strong>{{ order.bedName }}</strong>
+            <i class="bi bi-trash custom-trash-icon-style"
+              style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#orderDetail"></i>
+          </h2>
+        </div>
+        <ul class="list-inline custom-list-style">
+          <li class="list-inline-item" style="margin-right: 1.5rem;">
+            <p class="custom-list-element-style fst-italic text-muted">Rent</p>
+            <span>{{ order.bedPrice }}</span>
+          </li>
+          <li class="list-inline-item">
+            <p class="custom-list-element-style fst-italic text-muted">Deposit</p>
+            <span>Rs.750</span>
+          </li>
+        </ul>
+        <div>
+          <ul class="list-inline">
+            <li class="list-inline-item" style="margin-right: 5.5rem; border: 2px solid red;">
+              <ul class="list-inline btn-group">
+                <li class="list-inline-item" type="button" style="margin-left: 15px; margin-right: 15px;" (click)="onDecreaseOrderCount()">-</li>
+                <li class="list-inline-item" style="margin-right: 15px;">{{orderCount}}</li>
+                <li class="list-inline-item" type="button" style="margin-right: 15px;" (click)="onIncreaseOrderCount()">+</li>
+              </ul>
+            </li>
+            <ul class="list-inline custom-dropdown-style">
+              <div class="dropdown">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Duration
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="#">3 month</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">6 month</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">12 month</a></li>
+                </ul>
+              </div>
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- order delete modal -->
+<div class="modal fade" id="orderDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete the product?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="onDeleteOrder()">Delete</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -32,9 +32,9 @@ export class CartService {
     return this.orderDetails;
   }
 
-  clearCart() {
+  clearCart(item) {
     this.orderDetails = [];
-    return this.orderDetails;
+    this.itemCount.next(item);
   }
 
   getShippingPrice() {
