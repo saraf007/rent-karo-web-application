@@ -34,7 +34,7 @@ export class CartService {
 
   clearCart(item) {
     this.orderDetails = [];
-    this.itemCount.next(item);
+    //this.itemCount.next(item);
   }
 
   getShippingPrice() {

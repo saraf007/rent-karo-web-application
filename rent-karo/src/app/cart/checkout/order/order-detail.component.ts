@@ -25,7 +25,6 @@ export class OrderDetailComponent implements OnInit {
 
   ngOnInit() {
     this.orderDetails = this.cartService.getOrderDetails();
-    console.log(this.orderDetails);
   }
 
   onIncreaseOrderCount() {

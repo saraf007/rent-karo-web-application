@@ -1,6 +1,7 @@
 // Angular
 import { FormBuilder } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 // Project
 import { CartService } from "./cart.service";
@@ -10,9 +11,10 @@ import { CartService } from "./cart.service";
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
   isCartEmpty = false;
   items = [];
+  subs: Subscription;
 
   checkOutForm = this.formBuilder.group({
     name: '',
@@ -21,7 +23,7 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService,
     private formBuilder: FormBuilder) {
-      this.cartService.itemCount$.subscribe(item => {
+     this.subs = this.cartService.itemCount$.subscribe(item => {
         this.items.push(item);
         if (item) {
           this.isCartEmpty = false;
@@ -33,10 +35,6 @@ export class CartComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    // this.items = this.cartService.getItems();
-    // if (this.items.length < 1) {
-    //   this.isCartEmpty = true;
-    // }
   }
 
   // on purchase of orders
@@ -57,5 +55,10 @@ export class CartComponent implements OnInit {
     this.cartService.getDetails().subscribe(data => {
       console.log(data);
     })
+  }
+
+  // unsubscribe to prevent memory leak
+  ngOnDestroy() {
+    this.subs.unsubscribe();
   }
 }

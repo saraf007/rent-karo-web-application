@@ -6,6 +6,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Furniture } from '../furniture.model';
 import { CartService } from '../../cart/cart.service';
 import { FurnitureService } from '../furniture.service';
+import { AlertService } from 'src/app/shared/alert/alert.service';
 
 @Component({
   selector: 'app-furniture-list',
@@ -16,10 +17,14 @@ export class FurnitureListComponent implements OnInit {
   itemCount = 0;
   furnitures: Furniture[];
   furnitureList;
+  isItemCountMoreThanThree = false;
+  maxItemQuantityAllowed = 3;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     private furnitureService: FurnitureService,
-    private cartService: CartService) { }
+    private cartService: CartService,
+    private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.getFurnitureListDetailFromFurnitureService();
@@ -46,8 +51,15 @@ export class FurnitureListComponent implements OnInit {
 
   onAddToCart(furnitureDetail: any) {
     this.itemCount = this.itemCount + 1;
-    this.cartService.countItems(this.itemCount);
-    this.cartService.addToCart(furnitureDetail);
+    if (this.itemCount > 3) {
+      this.alertService.errorAlert("Max 3 units allowed.");
+      this.isItemCountMoreThanThree = true;
+      this.itemCount = this.maxItemQuantityAllowed;
+    }
+    else {
+      this.cartService.countItems(this.itemCount);
+      this.cartService.addToCart(furnitureDetail);
+    }
   }
 
 }

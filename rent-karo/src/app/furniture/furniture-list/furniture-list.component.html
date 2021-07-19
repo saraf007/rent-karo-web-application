@@ -1,6 +1,9 @@
 <!-- common navigation -->
 <app-navigation></app-navigation>
 
+<!-- alert -->
+<app-alert></app-alert>
+
 <div class="row row-cols-1 row-cols-md-3 g-4 container-fluid">
   <div class="col" *ngFor="let furniture of furnitureList.bedList">
     <div class="card h-100">
@@ -9,7 +12,20 @@
         <h5 class="card-title text-center">{{ furniture.bedName }}</h5>
       </div>
       <div class="card-footer">Rs.{{ furniture.bedPrice }}/mo
-        <button type="button" class="btn btn-primary" (click)="onAddToCart(furniture)" style="margin-left: 7rem;">Add to cart</button>
+        <button type="button"
+                class="btn btn-primary"
+                (click)="onAddToCart(furniture)"
+                style="margin-left: 7rem;"
+                *ngIf="!isItemCountMoreThanThree">
+          Add to cart
+        </button>
+        <button *ngIf="isItemCountMoreThanThree"
+                type="button"
+                class="btn btn-primary"
+                style="margin-left: 7rem;"
+                routerLink="/cart">
+          View Cart
+        </button>
       </div>
     </div>
   </div>
