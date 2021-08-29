@@ -13,6 +13,7 @@ import { ProductDetailComponent } from "./products/product-detail/product-detail
 import { FurnitureListComponent } from './furniture/furniture-list/furniture-list.component';
 import { LoginComponent } from './auth/login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'furniture', component: FurnitureComponent },
   { path: 'login', component: LoginComponent },
   { path: 'furniture-list/:furnitureId', component: FurnitureListComponent },
-  { path: 'navigation', component: NavigationComponent }
+  { path: 'navigation', component: NavigationComponent },
+  { path: 'signup', component: SignUpComponent }
 ];
 
 @NgModule({

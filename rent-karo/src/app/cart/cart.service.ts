@@ -11,7 +11,7 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
   baseUrl = "https://rentify-41b00-default-rtdb.firebaseio.com/";
   orderDetails = [];
-
+  createOrderUrl = "https://localhost:44380/api/orders";
   // create a subject
   itemCount = new BehaviorSubject<number>(0);
 
@@ -25,11 +25,22 @@ export class CartService {
   }
 
   addToCart(item) {
-    this.orderDetails.push(item);
+    // this.orderDetails.push(item);
+    // const onAddToCartUrl = `${this.baseUrl}/orders.json`;
+    // return this.http.post(onAddToCartUrl, item);
+    const itemDetail = {
+      "id": "3",
+      "name" : "blah blah",
+      "price" : 200,
+      "quantity" : 1
+    }
+    this.http.post(this.createOrderUrl, itemDetail).subscribe(data => {
+      console.log(data);
+    })
   }
 
   getOrderDetails() {
-    return this.orderDetails;
+    return this.http.get(`${this.baseUrl}/orders.json`);
   }
 
   clearCart(item) {
@@ -50,7 +61,7 @@ export class CartService {
   onPurchase(purchaseData: { name: string, address: string }) {
     console.log(purchaseData);
     const onPurchaseUrl = `${this.baseUrl}/posts.json`;
-    return this.http.post(onPurchaseUrl, purchaseData);
+    this.http.post(onPurchaseUrl, purchaseData);
   }
 
   getDetails() {

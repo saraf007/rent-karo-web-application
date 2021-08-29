@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 // Project
-import { AuthResponseData, AuthService } from '../auth.service';
+import { User } from '../user.model';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,12 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  createUser(user: User) {
+    this.authService.createUser(user).subscribe(data => {
+      console.log(data);
+    });
   }
 
   switchModeToLogin() {
@@ -41,26 +48,26 @@ export class LoginComponent implements OnInit {
     const password = form.value.password;
     this.isLoading = true;
 
-    let authObs: Observable<AuthResponseData>;
+    //let authObs: Observable<AuthResponseData>;
 
     if (!this.isLoginModeSignup) {
-     authObs = this.authService.login(email, password);
+     //authObs = this.authService.login(email, password);
     } else {
-    authObs = this.authService.signup(email, password);
+    //authObs = this.authService.signup(email, password);
     }
 
-   authObs.subscribe(
-    resData => {
-      console.log(resData);
-      this.isLoading = false;
-      this.router.navigate(['/']);
-    },
-   errorMessage => {
-    console.log(errorMessage);
-     this.error = errorMessage;
-     this.isLoading = false;
-   }
- );
+//    authObs.subscribe(
+//     resData => {
+//       console.log(resData);
+//       this.isLoading = false;
+//       this.router.navigate(['/']);
+//     },
+//    errorMessage => {
+//     console.log(errorMessage);
+//      this.error = errorMessage;
+//      this.isLoading = false;
+//    }
+//  );
 
     form.reset();
 }

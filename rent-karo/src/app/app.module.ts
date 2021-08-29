@@ -24,6 +24,8 @@ import { CheckoutComponent } from "./cart/checkout/checkout.component";
 import { CouponComponent } from "./cart/checkout/coupon/coupon.component";
 import { AlertComponent } from "./shared/alert/alert.component";
 import { OrderDetailComponent } from "./cart/checkout/order/order-detail.component";
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { AuthPageComponent } from './auth/auth-page/auth-page.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { OrderDetailComponent } from "./cart/checkout/order/order-detail.compone
     CheckoutComponent,
     CouponComponent,
     AlertComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    SignUpComponent,
+    AuthPageComponent
   ],
   imports: [
     BrowserModule,

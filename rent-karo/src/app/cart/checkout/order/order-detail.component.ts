@@ -1,10 +1,15 @@
 // Angular
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+
+// RXJS
+import { Subscription } from 'rxjs';
 
 // Project
 import { CartService } from "../../cart.service";
 import { OrderDetail } from './order-detail.class';
 import { AlertService } from '../../../shared/alert/alert.service';
+import { map } from 'rxjs/operators';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-order-detail',
@@ -12,19 +17,32 @@ import { AlertService } from '../../../shared/alert/alert.service';
   styleUrls: ['./order-detail.component.css']
 })
 
-export class OrderDetailComponent implements OnInit {
+export class OrderDetailComponent implements OnInit, OnDestroy {
   orderDetails : OrderDetail[];
   orderCount: number = 1;
   isOrderDeleted: boolean = false;
   maxOrderLimitInfoMessage = `You have exceeded the quantity limit for this item. Please contact our customer
   care team directly for bulk/B2B orders.`;
   minOrderLimitWarningMessage = `The minimum quantity limit can not be less than 1.`;
+  orderSubs : Subscription;
 
   constructor(private cartService: CartService,
     private alertService: AlertService) { }
 
   ngOnInit() {
-    this.orderDetails = this.cartService.getOrderDetails();
+    this.orderSubs = this.cartService.getOrderDetails()
+    .pipe(map(orders => {
+      const ordersArray = [];
+      for (const key in orders) {
+        if (orders.hasOwnProperty(key)) {
+          ordersArray.push({ ...orders[key], id: key })
+        }
+      }
+      return ordersArray;
+    }))
+    .subscribe(data => {
+      this.orderDetails = data;
+    });
   }
 
   onIncreaseOrderCount() {
@@ -60,5 +78,9 @@ export class OrderDetailComponent implements OnInit {
     getModalOpenElement.classList.remove("modal-open");
   }
 
+  // to prevent memory leak
+  ngOnDestroy() {
+    this.orderSubs.unsubscribe();
+  }
 }
 

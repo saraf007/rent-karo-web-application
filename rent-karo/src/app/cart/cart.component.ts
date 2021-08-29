@@ -1,6 +1,8 @@
 // Angular
 import { FormBuilder } from '@angular/forms';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+
+// RXJS
 import { Subscription } from 'rxjs';
 
 // Project
@@ -39,16 +41,16 @@ export class CartComponent implements OnInit, OnDestroy {
 
   // on purchase of orders
   onSubmit(): void {
-    this.cartService.onPurchase(this.checkOutForm.value).subscribe(
-      response => {
-        console.log(response);
-      },
-      error => {
-        console.log(error);
-      }
-    )
-    this.items = this.cartService.clearCart();
-    this.checkOutForm.reset();
+    // this.cartService.onPurchase(this.checkOutForm.value).subscribe(
+    //   response => {
+    //     console.log(response);
+    //   },
+    //   error => {
+    //     console.log(error);
+    //   }
+    // )
+    // //this.items = this.cartService.clearCart();
+    // this.checkOutForm.reset();
   }
 
   getDetails() {
