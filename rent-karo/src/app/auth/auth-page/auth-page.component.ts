@@ -14,4 +14,12 @@ export class AuthPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  switchModeToLogin() {
+    this.isLoginModeSignup = false;
+  }
+
+  switchModeToSignup() {
+    this.isLoginModeSignup = true;
+  }
+
 }

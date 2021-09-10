@@ -31,14 +31,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  switchModeToLogin() {
-    this.isLoginModeSignup = false;
-  }
-
-  switchModeToSignup() {
-    this.isLoginModeSignup = true;
-  }
-
   onSubmit(form: NgForm) {
     if (!form.valid) {
       return;
@@ -47,28 +39,11 @@ export class LoginComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
     this.isLoading = true;
-
-    //let authObs: Observable<AuthResponseData>;
-
     if (!this.isLoginModeSignup) {
      //authObs = this.authService.login(email, password);
     } else {
     //authObs = this.authService.signup(email, password);
     }
-
-//    authObs.subscribe(
-//     resData => {
-//       console.log(resData);
-//       this.isLoading = false;
-//       this.router.navigate(['/']);
-//     },
-//    errorMessage => {
-//     console.log(errorMessage);
-//      this.error = errorMessage;
-//      this.isLoading = false;
-//    }
-//  );
-
     form.reset();
 }
 

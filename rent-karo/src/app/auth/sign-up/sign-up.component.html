@@ -1,1 +1,45 @@
-<p>sign-up works!</p>
+<!-- loading spinner -->
+<div *ngIf="isLoading" style="text-align: center;">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<!-- Error handling -->
+<div class="alert alert-danger" role="alert" *ngIf="error">
+  {{ error }}
+</div>
+
+<!-- login / signup -->
+<div class="container-fluid" *ngIf="!isLoading">
+  <div class="row">
+    <div class="col"><img src="../../../assets/images/login-img.png" class="img-fluid" alt="..."></div>
+    <div class="col">
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+        <!-- First & Last name -->
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name" aria-label="First name"
+            ngModel name="firstName" required #firstName="ngModel" maxlength="15">
+            <span *ngIf="firstName.touched && firstName.invalid" class="text-danger">Please enter a valid first name.</span>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name"
+            ngModel name="lastName" required #lastName="ngModel" maxlength="15">
+            <span *ngIf="lastName.touched && lastName.invalid" class="text-danger">Please enter a valid last name.</span>
+          </div>
+        </div>
+        <!-- Email -->
+        <div class="mb-3">
+          <input type="email" class="form-control" id="email" placeholder="Email"
+            aria-describedby="email" ngModel name="email" required email #email="ngModel">
+          <span *ngIf="email.touched && email.invalid" class="text-danger">Please enter a valid email.</span>
+        </div>
+        <!-- Phone number -->
+          <input type="tel" id="phone" class="form-control" placeholder="Phone number"
+          aria-describedby="phone" required ngModel name="phoneNumber" #phoneNumber="ngModel" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$"/>
+          <span *ngIf="phoneNumber.touched && phoneNumber.invalid" class="text-danger">Please enter a valid phone number.</span>
+        <!-- Submit -->
+          <button type="submit" class="btn btn-primary" style="margin-top: 5%;">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,17 @@
-<div *ngIf="isLoginModeSignup">
-  <app-sign-up></app-sign-up>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div *ngIf="isLoginModeSignup">
+        <app-sign-up></app-sign-up>
+      </div>
+      <div *ngIf="!isLoginModeSignup">
+        <app-login></app-login>
+      </div>
+      <div class="login-btn">
+        <button type="submit" class="btn btn-primary" (click)="switchModeToLogin()" style="margin-right: 5%;">Login</button>
+        <a href="#" (click)="switchModeToSignup()">Sign Up</a>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div *ngIf="!isLoginModeSignup">
-  <app-login></app-login>
-</div>

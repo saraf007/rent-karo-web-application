@@ -29,7 +29,7 @@
             <span class="text-danger" *ngIf="password.touched && password.invalid">
               Password is required & must be more than 6 characters.</span>
         </div>
-        <!-- Confirm Password -->
+        <!-- Confirm Password
         <div class="mb-3" *ngIf="isLoginModeSignup">
           <label for="confirmPassword" class="form-label">Confirm Password</label>
           <input type="password" class="form-control" id="confirmPassword" ngModel
@@ -38,10 +38,10 @@
               <span *ngIf="confirmPassword.errors.required" class="text-danger">Confirm password is required.</span>
               <span *ngIf="confirmPassword.errors.pattern" class="text-danger">Password and Confirm Password does not match.</span>
             </span>
-        </div>
+        </div> -->
         <!-- buttons -->
-        <button type="submit" class="btn btn-primary" (click)="switchModeToLogin()">Login</button> |
-        <button type="submit" class="btn btn-primary" (click)="switchModeToSignup()">Sign Up</button>
+        <!-- <button type="submit" class="btn btn-primary" (click)="switchModeToLogin()">Login</button> |
+        <button type="submit" class="btn btn-primary" (click)="switchModeToSignup()">Sign Up</button> -->
       </form>
     </div>
   </div>

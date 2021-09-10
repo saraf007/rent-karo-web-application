@@ -14,3 +14,7 @@
   top: 7px;
   right: 10px;
 }
+
+.modal-content {
+  border-radius: 1.3rem;
+}
