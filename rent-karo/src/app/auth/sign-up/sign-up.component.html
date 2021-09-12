@@ -27,6 +27,21 @@
             <span *ngIf="lastName.touched && lastName.invalid" class="text-danger">Please enter a valid last name.</span>
           </div>
         </div>
+        <!-- User Name -->
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="User name" aria-label="User name"
+            ngModel name="userName" required #userName="ngModel" maxlength="15">
+            <span *ngIf="userName.touched && userName.invalid" class="text-danger">Please enter a valid user name.</span>
+          </div>
+        </div>
+        <!-- Password -->
+        <div class="mb-3">
+          <input type="password" class="form-control" id="password" placeholder="Password" ngModel name="password"
+            required minlength="6" #password="ngModel">
+            <span class="text-danger" *ngIf="password.touched && password.invalid">
+              Password is required & must be more than 6 characters.</span>
+        </div>
         <!-- Email -->
         <div class="mb-3">
           <input type="email" class="form-control" id="email" placeholder="Email"

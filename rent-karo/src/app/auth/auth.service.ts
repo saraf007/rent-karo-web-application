@@ -20,7 +20,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-  createUserUrl = "https://localhost:5001/api/customers";
+  createUserUrl = "https://localhost:5001/api/authentication";
   user = new Subject<User>();
 
   constructor(private http: HttpClient) { }
