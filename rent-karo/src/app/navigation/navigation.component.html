@@ -6,6 +6,7 @@
       <input class="form-control me-2 rounded-end" type="search" placeholder="Search for products,brands and more" aria-label="Search">
       <button class="btn" type="submit">Search</button>
     </form>
+    <!-- search bar -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,13 +14,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="d-flex">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <a routerLink="/cart" style="color: white; text-decoration: none;">
-              <button class="btn btn-primary me-md-2">
-                <i class="bi bi-cart3" style="color: white; margin-right: 5px;"></i>
+            <a routerLink="/cart">
+              <button class="btn btn-outline-primary me-md-2" style="background-color: white; color: blue;">
+                <i class="bi bi-cart3" style="margin-right: 5px;"></i>
                 <span class="badge bg-secondary">{{ itemCount }}</span>Cart
               </button>
             </a>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" *ngIf="!isAuthenticated">
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+             data-bs-target="#exampleModal" *ngIf="!isAuthenticated" style="background-color: white; color: blue;">
               LOGIN / SIGNUP
             </button>
             <button type="button" class="btn btn-primary" *ngIf="isAuthenticated">
