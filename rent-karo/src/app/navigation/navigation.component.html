@@ -1,17 +1,19 @@
+<!-- navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-primary bg-gradient">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Rentify</a>
+  <div class="container-fluid ms-5">
+    <a class="navbar-brand ms-5" href="#" style="color: white;">Rentify</a>
     <!-- search bar -->
     <form class="d-flex p-1 flex-fill">
-      <input class="form-control me-2 rounded-end" type="search" placeholder="Search for products,brands and more" aria-label="Search">
-      <button class="btn" type="submit">Search</button>
+      <i class="bi bi-search search-icon-position"></i>
+      <input class="form-control me-2 rounded-end ms-3" type="search" 
+        placeholder="Search for products,brands and more" aria-label="Search">
     </form>
     <!-- search bar -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse ms-3" id="navbarSupportedContent">
       <div class="d-flex">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a routerLink="/cart">
@@ -20,9 +22,9 @@
                 <span class="badge bg-secondary">{{ itemCount }}</span>Cart
               </button>
             </a>
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+            <button type="button" class="btn btn-outline-primary ms-3" data-bs-toggle="modal"
              data-bs-target="#exampleModal" *ngIf="!isAuthenticated" style="background-color: white; color: blue;">
-              LOGIN / SIGNUP
+              LOGIN
             </button>
             <button type="button" class="btn btn-primary" *ngIf="isAuthenticated">
               LOGOUT
@@ -32,6 +34,7 @@
     </div>
   </div>
 </nav>
+<!-- navigation -->
 
 <!-- Login Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"

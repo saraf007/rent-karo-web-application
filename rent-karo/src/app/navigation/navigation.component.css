@@ -18,3 +18,9 @@
 .modal-content {
   border-radius: 1.3rem;
 }
+
+.search-icon-position {
+  position: relative;
+  left: 91%;
+  margin-top: 5px;
+}
