@@ -4,6 +4,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 // RXJSa
 import { Subscription } from 'rxjs';
 
+// Social Media Login
+import { SocialAuthService, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
+
 // Project
 import { CartService } from '../cart/cart.service';
 import { AuthService } from '../auth/auth.service';
@@ -15,6 +18,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class NavigationComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
+  socialUser: SocialUser = new SocialUser;
   private userSub: Subscription;
   subscription: Subscription;
   items = [];
@@ -27,18 +31,20 @@ export class NavigationComponent implements OnInit, OnDestroy {
   ]
   cityId: number;
 
-  constructor(private cartService: CartService, private authService: AuthService) {
+  constructor(private cartService: CartService, private authService: AuthService,
+    private socialAuthService: SocialAuthService) {
     // subscribe to item count stream
     this.subscription = cartService.itemCount$.subscribe(count => { this.itemCount = count });
   }
 
   ngOnInit(): void {
-    this.userSub = this.authService.user.subscribe(user => {
-      this.isAuthenticated = !user ? false : true;
-      if (this.isAuthenticated) {
+      this.socialAuthService.authState.subscribe(user => {
+        this.socialUser = user;
+        if (this.socialUser != null || this.socialUser != undefined) {
+          this.isAuthenticated = true;
           this.removeModalAfterLogin();
-      }
-    })
+        }
+      })
   }
 
   setCityId(cityId: number) {
@@ -58,6 +64,10 @@ export class NavigationComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
     this.userSub.unsubscribe();
   }
-
+  
+  // logout with google
+  logoutWithGoogle(): void {
+    this.socialAuthService.signOut();
+  }
 
 }

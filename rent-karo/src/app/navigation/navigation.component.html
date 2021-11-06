@@ -26,7 +26,9 @@
              data-bs-target="#exampleModal" *ngIf="!isAuthenticated" style="background-color: white; color: blue;">
               LOGIN
             </button>
-            <button type="button" class="btn btn-primary" *ngIf="isAuthenticated">
+            <button type="button" class="btn btn-primary" 
+            *ngIf="isAuthenticated" style="background-color: white; color: blue;"
+            (click)="logoutWithGoogle()">
               LOGOUT
             </button>
         </div>
