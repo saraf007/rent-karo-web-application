@@ -31,7 +31,7 @@ export class AuthPageComponent implements OnInit {
   }
 
   // login with google
-  loginWithGoogle(): void {
+  onSignIn(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 }

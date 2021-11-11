@@ -11,7 +11,8 @@
         <button type="submit" class="btn btn-primary" (click)="switchModeToLogin()" style="margin-right: 5%;">Login</button>
         <a href="#" (click)="switchModeToSignup()">Sign Up</a>
       </div>
-      <button type="button" (click)="loginWithGoogle()" class="btn btn-danger">Login with Google</button>
+      <!-- <button type="button" (click)="loginWithGoogle()" class="btn btn-danger">Login with Google</button> -->
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </div>
   </div>
 </div>
